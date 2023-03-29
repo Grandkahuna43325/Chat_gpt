@@ -1,3 +1,22 @@
+function replace(data) {
+  let newData = data;
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] === '`') {
+      count++;
+      if (count % 2 === 0) {
+        newData = newData.replace('```', '</span>');
+      } else {
+        newData = newData.replace('```', '<span>');
+      }
+    }
+  }
+  return newData;
+}
+
+
+
+
 const express = require('express');
 const app = express();
 
@@ -19,34 +38,50 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.post("/increment", (req, res) => {
-  // Get the number from the request body
 
-  // console.log("first call")
+  const response = (async () => {
+    const message = req.body.message
 
-const response = (async () => {
-      const message = req.body.message
+    try {
+      const completion = await openai.createChatCompletion({
+        model: "gpt-3.5-turbo",
+        messages: [{role: "user", content: message}],
+      });
 
-      try {
-        const completion = await openai.createChatCompletion({
-          model: "gpt-3.5-turbo",
-          messages: [{role: "user", content: message}],
-        });
-
-        const ress = completion.data.choices[0].message
+      const ress = completion.data.choices[0].message
 
       return ress
 
-      } catch (err) {
-        console.log(err);
-      }
-    })();
+    } catch (err) {
+      console.log(err);
+    }
+  })();
 
-response.then((response) => {
-  res.json({ response: response });
+  response.then((response) => {
+    res.json({ response: response });
+  });
 });
+
+
+
+
+
+
+app.post("/manage_data", (req, res) => {
+
+  console.log(req.body.message)
+  
+
+  res.json({ response: response });
 
   console.log(response)
 });
+
+
+
+
+
+
 
 
 
@@ -54,3 +89,22 @@ app.listen(3000, () => {
   console.log('Server is listening on port 3000');
 });
 
+const data = '```python\narray = ["apple", "banana", "cherry", "d…\na\n\nc\nh\ne\nr\nr\ny\n\nd\na\nt\ne\n\ne\nl\nd\ne\nr\nb\ne\nr\nr\ny\n```';
+
+function replace(data) {
+  let newData = data;
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] === '`') {
+      count++;
+      if (count % 2 === 0) {
+        newData = newData.replace('```', '</span>');
+      } else {
+        newData = newData.replace('```', '<span>');
+      }
+    }
+  }
+  return newData;
+}
+
+console.log(replace(data));
