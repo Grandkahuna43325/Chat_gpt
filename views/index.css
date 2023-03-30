@@ -4,19 +4,32 @@ body
   color: white;
 }
 
-ul
+.answers
 {
-  font-size: 200px;
+  font-size: 20px;
+  padding-bottom: 3vw;
 }
 
 .answer
 {
-  color: green;
+  color: rgb(53, 200, 53);
+  margin: 0;
+  padding: 2vw;
+}
+
+pre
+{
+  background-color: black;
+  padding: 2vw;
+  border-radius: 20px;
+  margin: 1.5vw;
+  font-size: 18px;
 }
 
 .question
 {
-  color: blue;
+  color: rgb(97, 97, 229);
+  margin: 0;
 }
 .bottom
 {
@@ -25,14 +38,15 @@ ul
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 20px;
+  padding: 1vw;
   background-color: rgb(55, 55, 55);
 }
 
 .input
 {
-  width: 95%;
+  width: 100%;
   height: 2vw;
+  padding-right: 1vw;
 }
 
 input
@@ -46,25 +60,32 @@ input
   padding-left: 1vw;
 }
 
-.button
+input:focus
 {
-  margin-left: 1.5vw;
-}
-
-button
-{
-  height: 2vw;
-  width: 100%;
-  padding-right: 1vw;
-  padding-left: 1vw;
   border: none;
-  font-size: 20px;
-  color: rgb(176, 176, 176);
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(61, 61, 61);
+  outline: none;
 }
 
 span
 {
   color: white;
   background-color: gray;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* color of the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: rgb(55, 55, 55);
+}
+
+/* color and style of the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: rgb(85, 85, 85);
+  border-radius: 10px;
+  border: none;
 }

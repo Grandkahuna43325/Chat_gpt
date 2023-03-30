@@ -1,22 +1,3 @@
-function replace(data) {
-  let newData = data;
-  let count = 0;
-  for (let i = 0; i < data.length; i++) {
-    if (data[i] === '`') {
-      count++;
-      if (count % 2 === 0) {
-        newData = newData.replace('```', '</span>');
-      } else {
-        newData = newData.replace('```', '<span>');
-      }
-    }
-  }
-  return newData;
-}
-
-
-
-
 const express = require('express');
 const app = express();
 
@@ -79,32 +60,6 @@ app.post("/manage_data", (req, res) => {
 
 
 
-
-
-
-
-
-
 app.listen(3000, () => {
   console.log('Server is listening on port 3000');
 });
-
-const data = '```python\narray = ["apple", "banana", "cherry", "d…\na\n\nc\nh\ne\nr\nr\ny\n\nd\na\nt\ne\n\ne\nl\nd\ne\nr\nb\ne\nr\nr\ny\n```';
-
-function replace(data) {
-  let newData = data;
-  let count = 0;
-  for (let i = 0; i < data.length; i++) {
-    if (data[i] === '`') {
-      count++;
-      if (count % 2 === 0) {
-        newData = newData.replace('```', '</span>');
-      } else {
-        newData = newData.replace('```', '<span>');
-      }
-    }
-  }
-  return newData;
-}
-
-console.log(replace(data));

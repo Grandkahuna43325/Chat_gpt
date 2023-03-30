@@ -3,6 +3,7 @@
   <head>
     <title>GPT</title>
     <meta charset="UTF-8">
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
     <script src="index.js" defer>
@@ -11,21 +12,19 @@
   </head>
   <body>
 
-    <div class='answers'>
-      <ul>
+    <div class="answers">
+    </div>
 
-      </ul>
-    </div> 
+
+
+
 
     <div class='bottom'>
       <div class='input'>
-        <input type="text" id="input" name="" value=""> 
-      </div>
-
-      <div class='button'>
-        <button type="button" onclick="button()">Send</button>
+        <input type="text" id="input" name="" value="" onkeydown="key(event)" autofocus> 
       </div>
     </div>
+
 
 
   </body>
