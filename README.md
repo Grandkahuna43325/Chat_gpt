@@ -2,7 +2,7 @@
 
 # Showcase
 
-![gpt image](img/nvim.webp) 
+![gpt image](img/GPT.png) 
 
 ## This is just my project to find out if I can program in node after I took the course
 
